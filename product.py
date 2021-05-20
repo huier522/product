@@ -1,4 +1,4 @@
-product = []
+products = []
 
 while True:
     name = input('輸入「q」會結束記帳。請輸入要紀錄的商品名稱：')
@@ -6,5 +6,7 @@ while True:
         print('結束記帳。')
         break
     price = input('請輸入剛紀錄的商品價格：')
-    product.append([name, price])
-print(product)
+    products.append([name, price])
+
+for product in products:
+    print(f'{product[0]}的價格是{product[1]}')
