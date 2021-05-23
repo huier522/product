@@ -10,3 +10,8 @@ while True:
 
 for product in products:
     print(f'{product[0]}的價格是{product[1]}')
+
+with open('products.csv', 'w', encoding='utf-8') as file:
+    file.write('商品,價格\n')
+    for product in products:
+        file.write(f'{product[0]},{product[1]}\n')
