@@ -1,12 +1,18 @@
-#讀取檔案
-products = []
-with open('products.csv', 'r', encoding='utf-8') as file:
-    for product in file:
-        if '商品,價格' in product:
-            continue #繼續
-        name, price = product.strip().split(',')
-        products.append([name, price])
-print(products)
+import os  # operating system
+
+#檢查檔案在不在，存在就讀取檔案
+products = [] #不管檔案在不在，才能有空清單去存
+if os.path.isfile('products.csv'):
+    print('檔案存在！')
+    with open('products.csv', 'r', encoding='utf-8') as file:
+        for product in file:
+            if '商品,價格' in product:
+                continue  # 繼續
+            name, price = product.strip().split(',')
+            products.append([name, price])
+    print(products)
+else:
+    print('檔案不在在，請建立檔案！')
 
 #使用者輸入
 while True:
